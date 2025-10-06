@@ -3,15 +3,15 @@ import C from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 
 
-const DialogItem = (props) => {
-    let path = "/dialogs/dialog" + props.id;
-    return (
-
-        <div className={C.dialog}>
-            <NavLink to={path}>{props.name}</NavLink>
-        </div>
-    )
-}
+// const DialogItem = (props) => {
+//     let path = "/dialogs/dialog" + props.id;
+//     return (
+//
+//         <div className={C.dialog}>
+//             <NavLink to={path}>{props.name}</NavLink>
+//         </div>
+//     )
+// }
 
 const Message = (props) => {
     return (
