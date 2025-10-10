@@ -1,19 +1,29 @@
 import React from "react";
 import MyPostsC from "./MyPosts.module.css"
-import Post from "./Post/Post";
+import PostRender from "./Post/Post";
+import {newPostText} from "../../../redux/state";
 
-const MyPosts = () => {
+
+const MyPosts = (props) => {
+
+    let newPostElement = React.createRef()
+
+    let addPost = () => {
+        let text = newPostElement.current.value
+        props.addPost(text)
+    }
+
+    let onChangeText = () => {
+        let text = newPostElement.current.value
+        newPostText(text)
+    }
     return (
         <div className={MyPostsC.content}>
             <div>
-                My Posts
-                <div>
-                    new Posts
-                </div>
-                <Post name="dima" age="25"/>
-                <Post name="oleg" age="34"/>
-                <Post/>
-                <Post/>
+                <h3>My Posts</h3>
+                <textarea onChange={onChangeText} ref={newPostElement} value={props.profileArr.newPostText}></textarea>
+                <button onClick={addPost}>click</button>
+                <PostRender postArr={props.profileArr.postArr}/>
             </div>
 
         </div>

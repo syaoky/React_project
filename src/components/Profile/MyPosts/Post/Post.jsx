@@ -1,16 +1,23 @@
 import React from "react";
 import PostC from "./Post.module.css"
 
-const Post = (props) => {
-    return (
-        <div className={PostC.item}>
-            <img src="https://i.pinimg.com/736x/00/72/8a/00728a1fd498ec35140f799a3a94df3b.jpg" alt=""/>
-            <span>{props.name} {props.age}</span>
-            <button>Like</button>
-            <button>disLike</button>
-        </div>
 
-    );
+
+
+const PostRender = (props) => {
+
+    return (
+        props.postArr.map((item) => {
+            return (
+                <div className={PostC.item}>
+                    <img src={item.scr} alt=""/>
+                    <span>{item.name} {item.age} </span>
+                    <div className={PostC.cont}><p>{item.text}</p></div>
+                </div>
+            )
+        })
+    )
 }
 
-export default Post
+
+export default PostRender
