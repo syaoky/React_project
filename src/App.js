@@ -7,7 +7,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
 function App(props) {
-
     return (
         <BrowserRouter>
         <div className="app-wraper">
@@ -15,7 +14,7 @@ function App(props) {
             <Nav/>
             <div className='app-wraper-cont'>
                 <Routes>
-                    <Route path='/profile' element={<Profile profileArr={props.state.profile} addPost={props.addPost}/>} />
+                    <Route path='/profile' element={<Profile profileArr={props.state.profile} dispatch={props.dispatch}/>} />
                     <Route path='/dialogs*' element={<Dialogs state={props.state}/>}/>
                 </Routes>
             </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import MyPostsC from "./MyPosts.module.css"
 import PostRender from "./Post/Post";
-import store from "../../../redux/state";
 
 
 const MyPosts = (props) => {
@@ -10,12 +9,12 @@ const MyPosts = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value
-        props.addPost(text)
+        props.dispatch({type:"ADD-POST", postMessage: text})
     }
 
     let onChangeText = () => {
         let text = newPostElement.current.value
-        store.newPostText(text)
+        props.dispatch({type: "NEW-POST-TEXT", newText: text})
     }
     return (
         <div className={MyPostsC.content}>
