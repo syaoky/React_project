@@ -5,10 +5,7 @@
     border-radius: 1vw;
     height: 100%;
     display: grid;
-    /*grid-template-columns: 1fr 1fr;*/
-    /*justify-content: space-around;*/
-    /*justify-items: stretch;*/
-    /*grid-template-areas: "n c";*/
+
 
     .message {
         color: black;
@@ -16,19 +13,43 @@
     }
 }
 .myMessege {
-    display: grid;
+    display: inline-block;
+    max-width: 40ch;
+    word-break: break-word;
     background-color: gold;
-    width: 15%;
+    justify-content: start;
+    justify-self: left;
+    padding: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .freandMessege{
-    display: grid;
+    padding: 10px;
     justify-content: end;
     justify-self: right;
-    width: 15%;
+    display: inline-block;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: mediumslateblue;
+}
+
+.inputText {
+
+}
+
+.addMessege {
+    border: none;
+    background-color: burlywood;
+    border-radius: 15px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 20px;
+    justify-content: center;
+    justify-self: center;
+    display: inline-block;
+}
+
+.addMessege:hover {
+    background-color: #0b5ed7;
+
 }

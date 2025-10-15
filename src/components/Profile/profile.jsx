@@ -1,4 +1,3 @@
-import ProfileContent from "./profile.module.css"
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./profileInfo/profileInfo";
 

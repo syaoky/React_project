@@ -1,5 +1,11 @@
-let url = "https://i.pinimg.com/736x/00/72/8a/00728a1fd498ec35140f799a3a94df3b.jpg"
+import {profileReduser} from "./profileReduser";
+import {dialogReduser} from "./dialogsReduser";
 
+let url = "https://i.pinimg.com/736x/00/72/8a/00728a1fd498ec35140f799a3a94df3b.jpg"
+const newPost = "ADD-POST";
+const newPostTextType = "NEW-POST-TEXT";
+const newMessege = "NEW-MESSEGE";
+const updateNewMessegeBody = "NEW-MESSEGE-BODY"
 
 let store = {
     _state: {
@@ -10,10 +16,9 @@ let store = {
                 {id: 3, scr: url, name: "Ромчик", age: "14", text: "А я вообще Фрося"}
 
             ],
-            newPostText: "123",
+            newPostText: "",
         },
-        messegesPage:
-            {
+        messegesPage: {
                 messegeData: [
                     {id: 10, messege: "hi", autor: "Vasya"},
                     {id: 2, messege: "привет", autor: "Nastya"},
@@ -28,7 +33,8 @@ let store = {
                     {name: "Фрося", id: "3"},
                     {name: "Женя", id: "4"},
                     {name: "Евгений", id: "5"}
-                ]
+                ],
+                newMessegeBody: ""
             }
     },
     getState() {
@@ -36,39 +42,70 @@ let store = {
     },
     rerender() {
     },
-//     addPost (postMessage)  {
-//         let newPost = {
-//             id: 5,
-//             scr: url,
-//             text: postMessage,
-//             name: "Фрося"
-//         }
-//         store._state.profile.postArr.push(newPost)
-//         store._state.profile.newPostText = ""
-//         store.rerender(store._state)
-// },
     subscribe(obs) {
-        this.rerender = obs
+        store.rerender = obs
     },
-    // newPostText (text) {
-    //     this._state.profile.newPostText = text
-    //     this.rerender(this._state)
-    // },
     dispatch(action) {
-        if (action.type == "ADD-POST") {
-            let newPost = {
-                id: 5,
-                scr: url,
-                text: action.postMessage,
-                name: "Фрося"
-            }
-            store._state.profile.postArr.push(newPost)
-            store._state.profile.newPostText = ""
-            store.rerender(store._state)
-        } else if (action.type == "NEW-POST-TEXT") {
-            store._state.profile.newPostText = action.newText
-            store.rerender(this._state)
-        }
+        store._state.profile = profileReduser(store._state.profile, action)
+
+        store._state.messegesPage = dialogReduser(store._state.messegesPage, action)
+
+        store.rerender(store._state)
+        // switch (action.type) {
+        //     case"ADD-POST":
+        //         let newPost = {
+        //             id: 5,
+        //             scr: url,
+        //             text: action.postMessage,
+        //             name: "Фрося"
+        //         }
+        //         store._state.profile.postArr.push(newPost)
+        //         store._state.profile.newPostText = ""
+        //         store.rerender(store._state)
+        //         break;
+        //     case "NEW-POST-TEXT":
+        //         store._state.profile.newPostText = action.newText
+        //         store.rerender(store._state)
+        //         break;
+        //     case"NEW-MESSEGE":
+        //         let messege = {id: 10, messege: action.newMessege, autor: "Vasya"}
+        //         store._state.messegesPage.messegeData.push(messege)
+        //         store._state.messegesPage.newMessegeBody = ""
+        //         store.rerender(store._state)
+        //         break;
+        //     case"NEW-MESSEGE-BODY":
+        //         store._state.messegesPage.newMessegeBody = action.newText
+        //         store.rerender(store._state)
+        //         break;
+        // }
+    }
+}
+
+export const addPostActionCreator = (text) => {
+    return {
+        type: newPost,
+        postMessage: text
+    }
+}
+export const addMessegeActeionCreater = (text) => {
+
+    return {
+        type: newMessege,
+        newMessege: text
+    }
+}
+export const updateNewPostTextActionCreator = (text) => {
+
+    return {
+        type: newPostTextType,
+        newText: text
+    }
+}
+
+export const updateNewTextMessege = (text) => {
+    return {
+        type: updateNewMessegeBody,
+        newText: text
     }
 }
 
