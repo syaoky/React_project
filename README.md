@@ -1,3 +1,9 @@
+Социальная сеть на базе React (SPA).
+Реализованный функционал на данный момент:
+Навигационная панель вызывающая компоненты:Profile, Messages, News, Music, Setting
+Страница Profile: Добавление поста на стену, фиксация изменения поля ввода в state
+Страница Messages: Добавление нового сообщения, фиксация изменения поля ввода в state
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
