@@ -1,30 +1,28 @@
 import React from "react";
 import MyPostsC from "./MyPosts.module.css"
 import PostRender from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReduser";
 
 
 
 
 const MyPosts = (props) => {
-
     let newPostElement = React.createRef()
 
     let addPost = () => {
         let text = newPostElement.current.value
-        props.dispatch(addPostActionCreator(text))
+        props.addPost(text)
     }
 
     let onChangeText = () => {
         let text = newPostElement.current.value
-        props.dispatch(updateNewPostTextActionCreator(text))
+        props.onChangeText(text)
     }
-
     return (
         <div className={MyPostsC.content}>
             <div>
                 <h3>My Posts</h3>
-                <textarea onChange={onChangeText} ref={newPostElement} value={props.profileArr.newPostText}></textarea>
+                <textarea onChange={onChangeText} ref={newPostElement} value={props.newPostText}></textarea>
                 <button onClick={addPost}>add post</button>
                 <PostRender postArr={props.profileArr.postArr}/>
             </div>

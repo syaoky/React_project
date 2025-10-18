@@ -1,8 +1,8 @@
 import React from "react";
 import C from "./Dialogs.module.css"
 import I from "./DialogList/DialogsList.module.css"
-import MessegeList from "./messeges/Messege";
 import DialogList from "./DialogList/DialogList";
+import ComteinerMessegeList from "./messeges/MessegeConteiner";
 
 
 const Dialogs = (props) => {
@@ -12,7 +12,7 @@ const Dialogs = (props) => {
                 <DialogList dialogs={props.state.messegesPage.dialogData}/>
             </div>
             <div className={C.messages}>
-                <MessegeList className={C.message} messeges={props.state.messegesPage} dispatch={props.dispatch}/>
+                <ComteinerMessegeList className={C.message} messeges={props.state.messegesPage} dispatch={props.dispatch}/>
 
             </div>
         </div>

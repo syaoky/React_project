@@ -1,18 +1,18 @@
 import React from "react";
 import C from "./Messege.module.css"
-import {addMessegeActeionCreater, updateNewTextMessege} from "../../../redux/state";
+import {addMessegeActeionCreater, updateNewTextMessege} from "../../../redux/dialogsReduser";
 
 
 const MessegeList = (props) => {
 
     const updateText = (event) => {
         let text = event.target.value
-        props.dispatch(updateNewTextMessege(text))
+        props.updateText(text)
     }
 
     const addNewMessege = () => {
         let text = props.messeges.newMessegeBody
-        props.dispatch(addMessegeActeionCreater(text))
+        props.addNewMessege(text)
     }
     const filterId = (messegeId) => {
         let myId = 10;
