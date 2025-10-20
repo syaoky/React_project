@@ -35,16 +35,17 @@ let initState = {
     newMessegeBody: ""}
 
 export const dialogReduser = (state = initState, action) => {
+    let newState = {...state}
     switch (action.type) {
         case"NEW-MESSEGE":
             let messege = {id: 10, messege: action.newMessege, autor: "Vasya"}
-            state.messegeData.push(messege)
-            state.newMessegeBody = ""
+            newState.messegeData.push(messege)
+            newState.newMessegeBody = ""
             break;
         case"NEW-MESSEGE-BODY":
-            state.newMessegeBody = action.newText
+            newState.newMessegeBody = action.newText
             break;
         default:
     }
-    return state
+    return newState
 }

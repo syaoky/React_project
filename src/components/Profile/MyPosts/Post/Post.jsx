@@ -5,6 +5,7 @@ import PostC from "./Post.module.css"
 
 
 const PostRender = (props) => {
+
     return (
         props.postArr.map((item) => {
             return (

@@ -7,6 +7,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 
 const MyPosts = (props) => {
+    debugger
     let newPostElement = React.createRef()
 
     let addPost = () => {
@@ -22,7 +23,7 @@ const MyPosts = (props) => {
         <div className={MyPostsC.content}>
             <div>
                 <h3>My Posts</h3>
-                <textarea onChange={onChangeText} ref={newPostElement} value={props.newPostText}></textarea>
+                <textarea onChange={onChangeText} ref={newPostElement} value={props.profileArr.newPostText}></textarea>
                 <button onClick={addPost}>add post</button>
                 <PostRender postArr={props.profileArr.postArr}/>
             </div>

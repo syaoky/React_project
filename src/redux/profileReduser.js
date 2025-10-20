@@ -28,6 +28,7 @@ let initialState ={
 }
 
 export const profileReduser = (state = initialState, action) => {
+    let newState = {...state}
     switch (action.type) {
         case"ADD-POST":
             let newPost = {
@@ -36,13 +37,13 @@ export const profileReduser = (state = initialState, action) => {
                 text: action.postMessage,
                 name: "Фрося"
             }
-            state.postArr.push(newPost)
-            state.newPostText = ""
+            newState.postArr.push(newPost)
+            newState.newPostText = ""
             break;
         case "NEW-POST-TEXT":
-            state.newPostText = action.newText
+            newState.newPostText = action.newText
             break;
         default:
     }
-    return state
+    return newState
 }

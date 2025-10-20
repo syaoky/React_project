@@ -5,6 +5,7 @@ import {addMessegeActeionCreater, updateNewTextMessege} from "../../../redux/dia
 
 const MessegeList = (props) => {
 
+
     const updateText = (event) => {
         let text = event.target.value
         props.updateText(text)
